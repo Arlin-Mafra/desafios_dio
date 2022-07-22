@@ -1,7 +1,7 @@
 import java.time.LocalDate;
 
-import br.com.dio.desafio.modelo.Curso;
-import br.com.dio.desafio.modelo.Mentoria;
+import br.com.dio.desafio.dominio.Curso;
+import br.com.dio.desafio.dominio.Mentoria;
 
 public class App {
     public static void main(String[] args) throws Exception {
