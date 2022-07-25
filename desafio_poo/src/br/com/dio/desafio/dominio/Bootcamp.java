@@ -9,6 +9,7 @@ public class Bootcamp {
     
     private String nome;
     private String descricao;
+    private boolean isFreePlane;
     private final LocalDate dataInicial = LocalDate.now();
     private final LocalDate dataFinal = dataInicial.plusDays(45);
     private Set<Dev> devsInscritos = new HashSet<>();
@@ -45,6 +46,18 @@ public class Bootcamp {
     public void setConteudos(Set<Conteudo> conteudos) {
         this.conteudos = conteudos;
     }
+
+    public boolean getIsFreePlan() {
+        return isFreePlane;
+    }
+    public void setIsFreePlane(boolean isFreePlane) {
+        this.isFreePlane = isFreePlane;
+    }
+
+
+    
+
+    
     @Override
     public int hashCode() {
         final int prime = 31;
@@ -98,6 +111,7 @@ public class Bootcamp {
             return false;
         return true;
     }
+ 
 
     
     

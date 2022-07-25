@@ -27,12 +27,14 @@ public class App {
      Bootcamp bootcamp = new Bootcamp();
      bootcamp.setNome("Java developer");
      bootcamp.setDescricao("Bootcamp java");
+     bootcamp.setIsFreePlane(false);
      bootcamp.getConteudos().add(curso1);
      bootcamp.getConteudos().add(curso2);
      bootcamp.getConteudos().add(mentoria);
 
      Dev devArlin = new Dev();
      devArlin.setNome("Arlin");
+     devArlin.assinarPro();
      devArlin.inscreverBootcamp(bootcamp);
      System.out.println("Conteúdos inscritos arlin: " + devArlin.getConteudosInscritos());
      System.out.println("=======================");

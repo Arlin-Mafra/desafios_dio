@@ -7,12 +7,23 @@ import java.util.Set;
 public class Dev {
 
     private String nome;
+    private boolean planoPro; 
     private Set<Conteudo> conteudosInscritos = new LinkedHashSet<>();
     private Set<Conteudo> conteudosConcluidos = new LinkedHashSet<>();
 
-    public void inscreverBootcamp(Bootcamp bootcamp){
-        this.conteudosInscritos.addAll(bootcamp.getConteudos());
-        bootcamp.getDevsInscritos().add(this);
+    public void assinarPro(){
+        setPlanoPro(true);
+    }
+
+    public void inscreverBootcamp(Bootcamp bootcamp ){
+       if(getPlanoPro() ==  true || bootcamp.getIsFreePlan() == true){
+           this.conteudosInscritos.addAll(bootcamp.getConteudos());
+           bootcamp.getDevsInscritos().add(this);
+        }else if(bootcamp.getIsFreePlan() == false || planoPro ==  false){
+           System.err.println("Este plano é pago, se inscreva em nosso plano Pro!");;
+       }else{
+        System.out.println("Não foi possível realizar a inscrição");
+       }
     }
 
 
@@ -55,6 +66,17 @@ public class Dev {
         this.conteudosConcluidos = conteudosConcluidos;
     }
 
+    
+    public boolean getPlanoPro() {
+        return planoPro;
+    }
+
+    public void setPlanoPro(boolean planoPro) {
+        this.planoPro = planoPro;
+    }
+
+    
+
 
     @Override
     public int hashCode() {
@@ -92,10 +114,6 @@ public class Dev {
         } else if (!nome.equals(other.nome))
             return false;
         return true;
-    }
-
-    
-
-    
+    }  
 
 }
